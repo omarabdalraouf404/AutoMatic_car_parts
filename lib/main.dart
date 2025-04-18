@@ -6,8 +6,7 @@ import 'package:workshop_app/Cubit/order_cubit_page.dart';
 import 'package:workshop_app/workshop_app.dart';
 import 'core/logic/cache_helper.dart';
 import 'Cubit/cart_cupit_page.dart'; // استيراد CartCubit
-
-void main() async {
+void main() async { 
   WidgetsFlutterBinding.ensureInitialized();
   await CacheHelper.init();
 

@@ -37,7 +37,7 @@ class _VerifyScreenState extends State<VerifyScreen> {
       isLoading = true;
     });
 
-    const String verifyUrl = "http://192.168.1.5/car_api/verify_code.php";
+    const String verifyUrl = "http://192.168.1.10/car_api/verify_code.php";
     final body = {
       "email": widget.email,
       "otp_code": verifyCodeController.text.trim(),

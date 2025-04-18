@@ -1,16 +1,33 @@
-# workshop_app
+# 🚀 AutoMatic App
 
-A new Flutter project.
+A modern and simple Flutter mobile application that allows users to register, log in, or continue browsing as a guest.  
+The app uses `SharedPreferences` to locally store the user's session status and provides a smooth, user-friendly experience.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## ✨ Features
+- Create a new account (Sign Up).
+- Log in with an existing account (Login).
+- Browse the app as a guest without registration.
+- Save and manage user session data locally using `SharedPreferences`.
+- Automatically navigate users based on their session status.
+- Responsive UI design for all screen sizes.
+- Smooth animations for better user experience.
 
-A few resources to get you started if this is your first Flutter project:
+---
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 🛠️ Technologies Used
+- **Flutter** — for building the cross-platform mobile application.
+- **ScreenUtil** — for responsive UI design.
+- **SharedPreferences** — for local storage of user session data.
+- **Stateful Widgets** — for simple state management.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+
+## 🚀 Getting Started
+
+To run this project locally:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/workshop_app.git
