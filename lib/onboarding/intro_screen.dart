@@ -11,7 +11,7 @@ class IntroScreen extends StatelessWidget {
     titleWidget: Text(
       "Welcome",
       style: TextStyle(
-        fontSize: 24,
+        fontSize: 36,
         fontWeight: FontWeight.bold,
         color: Colors.black87,
       ),
@@ -20,16 +20,17 @@ class IntroScreen extends StatelessWidget {
     bodyWidget: Text(
       "Our app helps you easily find your car spare parts.",
       style: TextStyle(
-        fontSize: 18,
+        fontSize: 24,
         fontWeight: FontWeight.w600,
         color: Colors.black54,
       ),
       textAlign: TextAlign.center,
     ),
     image:  Center(
-      child: Image.asset(
-        'assets/images/intro1.png',
-        width: 200,
+      child: Icon(
+      Icons.car_repair, // ايقونة عربية قطع غيار
+      size: 120,
+      color: Colors.blueAccent,
       ),
     ),
   ),
@@ -63,7 +64,7 @@ class IntroScreen extends StatelessWidget {
     titleWidget: Text(
       "Guaranteed Quality",
       style: TextStyle(
-        fontSize: 24,
+        fontSize: 36,
         fontWeight: FontWeight.bold,
         color: Colors.black87,
       ),
@@ -72,7 +73,7 @@ class IntroScreen extends StatelessWidget {
     bodyWidget: Text(
       "We provide original and certified spare parts to ensure your car's best performance.",
       style: TextStyle(
-        fontSize: 18,
+        fontSize: 24,
         fontWeight: FontWeight.w600,
         color: Colors.black54,
       ),

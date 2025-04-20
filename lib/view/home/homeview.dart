@@ -20,7 +20,7 @@ class HomeView extends StatelessWidget {
 }
 
 class _HomeView extends StatefulWidget {
-  const _HomeView({super.key});
+  const _HomeView();
 
   @override
   State<_HomeView> createState() => _HomeViewState();
