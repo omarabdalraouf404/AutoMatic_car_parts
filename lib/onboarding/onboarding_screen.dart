@@ -124,17 +124,29 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   scale: _scale,
                   duration: const Duration(milliseconds: 150),
                   curve: Curves.easeInOut,
-                  child: Text(
-                    'Continue as Guest',
-                    style: TextStyle(
-                      color: AppColor.darkGray,
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.w600,
-                      decoration: TextDecoration.underline,
-                      decorationColor: AppColor.darkGray.withOpacity(0.8),
-                      decorationThickness: 1,
-                      decorationStyle: TextDecorationStyle.solid,
-                    ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      // هنا يتم استخدام أيقونة لوجو بدلاً من الصورة
+                      Icon(
+                        Icons.gesture, // اختر أيقونة تعبر عن اللوجو الخاص بك
+                        color: AppColor.primary,
+                        size: 24.sp, // حجم الأيقونة
+                      ),
+                      horizontalSpace(8), // المسافة بين الأيقونة والنص
+                      Text(
+                        'Continue as Guest',
+                        style: TextStyle(
+                          color: AppColor.darkGray,
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w600,
+                          decoration: TextDecoration.underline,
+                          decorationColor: AppColor.darkGray.withOpacity(0.8),
+                          decorationThickness: 1,
+                          decorationStyle: TextDecorationStyle.solid,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),

@@ -1,36 +1,117 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:workshop_app/view/Home/homeview.dart'; 
+import 'package:workshop_app/onboarding/onboarding_screen.dart';
+//import 'package:workshop_app/view/Home/homeview.dart'; 
 // عدل على حسب اسم الشاشة الرئيسية عندك
 
 class IntroScreen extends StatelessWidget {
   final List<PageViewModel> pages = [
-    PageViewModel(
-      title: "مرحباً بك",
-      body: "تطبيقنا بيساعدك توصل لقطع غيار عربيتك بسهولة.",
-      image: const Center(child: Icon(Icons.car_repair, size: 100)),
+      PageViewModel(
+    titleWidget: Text(
+      "Welcome",
+      style: TextStyle(
+        fontSize: 24,
+        fontWeight: FontWeight.bold,
+        color: Colors.black87,
+      ),
+      textAlign: TextAlign.center,
     ),
-    PageViewModel(
-      title: "سهل وسريع",
-      body: "تصفح وابحث واشتري في خطوات بسيطة.",
-      image: const Center(child: Icon(Icons.speed, size: 100)),
+    bodyWidget: Text(
+      "Our app helps you easily find your car spare parts.",
+      style: TextStyle(
+        fontSize: 18,
+        fontWeight: FontWeight.w600,
+        color: Colors.black54,
+      ),
+      textAlign: TextAlign.center,
     ),
-    PageViewModel(
-      title: "دعم فني مستمر",
-      body: "فريقنا جاهز لمساعدتك على مدار الساعة لأي استفسار أو مشكلة.",
-      image: const Center(child: Icon(Icons.support_agent, size: 100)),
+    image:  Center(
+      child: Image.asset(
+        'assets/images/intro1.png',
+        width: 200,
+      ),
     ),
-  ];
-
+  ),
+  PageViewModel(
+    titleWidget: Text(
+      "Easy and Fast",
+      style: TextStyle(
+        fontSize: 24,
+        fontWeight: FontWeight.bold,
+        color: Colors.black87,
+      ),
+      textAlign: TextAlign.center,
+    ),
+    bodyWidget: Text(
+      "Browse, search, and purchase in simple steps.",
+      style: TextStyle(
+        fontSize: 18,
+        fontWeight: FontWeight.w600,
+        color: Colors.black54,
+      ),
+      textAlign: TextAlign.center,
+    ),
+    image:  Center(
+      child: Image.asset(
+        'assets/images/intro3.png',
+        width: 200,
+      ),
+    ),
+  ),
+  PageViewModel(
+    titleWidget: Text(
+      "Guaranteed Quality",
+      style: TextStyle(
+        fontSize: 24,
+        fontWeight: FontWeight.bold,
+        color: Colors.black87,
+      ),
+      textAlign: TextAlign.center,
+    ),
+    bodyWidget: Text(
+      "We provide original and certified spare parts to ensure your car's best performance.",
+      style: TextStyle(
+        fontSize: 18,
+        fontWeight: FontWeight.w600,
+        color: Colors.black54,
+      ),
+      textAlign: TextAlign.center,
+    ),
+    image: Center(
+      child: Image.asset(
+        'assets/images/intro2.png',
+        width: 200,
+      ),
+    ),
+  ),
+];
   Future<void> _onIntroEnd(BuildContext context) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setBool('seenIntro', true);
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  await prefs.setBool('seenIntro', true); // حفظ انه خلص الانترو
 
-    Navigator.of(context).pushReplacement(
-      MaterialPageRoute(builder: (_) => const HomeView()),
-    );
-  }
+  Navigator.of(context).pushReplacement(
+    MaterialPageRoute(builder: (_) => const OnboardingScreen()),
+  );
+}
+
+//   Future<void> _onIntroEnd(BuildContext context) async {
+//   SharedPreferences prefs = await SharedPreferences.getInstance();
+//   await prefs.setBool('seenIntro', true);  // تخزين قيمة أنه تم عرض الشاشة
+
+//   Navigator.of(context).pushReplacement(
+//     MaterialPageRoute(builder: (_) => const HomeView()),
+//   );
+// }
+
+  // Future<void> _onIntroEnd(BuildContext context) async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   await prefs.setBool('seenIntro', true);
+
+  //   Navigator.of(context).pushReplacement(
+  //     MaterialPageRoute(builder: (_) => const HomeView()),
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {
