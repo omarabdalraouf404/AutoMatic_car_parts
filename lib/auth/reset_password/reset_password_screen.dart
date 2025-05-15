@@ -40,7 +40,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
     });
 
     const String apiUrl =
-        "http://192.168.1.10/car_api/reset_password.php"; // Ensure the correct API URL
+        "http://192.168.248.153/car_api/reset_password.php"; // Ensure the correct API URL
 
     final response = await http.post(Uri.parse(apiUrl), body: {
       "email": widget.email, // Registered email

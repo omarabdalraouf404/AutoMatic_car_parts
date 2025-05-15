@@ -35,7 +35,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final confirmPasswordFocusNode = FocusNode();
 
   Future<void> registerUser() async {
-    const String registerUrl = "http://192.168.1.10/car_api/register.php";
+    const String registerUrl = "http://192.168.248.153/car_api/register.php";
     final body = {
       "name": userNameController.text.trim(),
       "email": emailController.text.trim(),

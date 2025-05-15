@@ -5,7 +5,7 @@ import 'package:workshop_app/model/product_model.dart';
 class ApiService {
   static Future<List<ProductModel>> fetchProducts() async {
     const String url =
-        "http://192.168.1.10/car_api/get_products.php"; // استبدل برابط API الخاص بك
+        "http://192.168.248.153/car_api/get_products.php"; // استبدل برابط API الخاص بك
     final response = await http.get(Uri.parse(url));
 
     if (response.statusCode == 200) {

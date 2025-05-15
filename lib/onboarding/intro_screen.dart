@@ -38,7 +38,7 @@ class IntroScreen extends StatelessWidget {
     titleWidget: Text(
       "Easy and Fast",
       style: TextStyle(
-        fontSize: 24,
+           fontSize: 36,
         fontWeight: FontWeight.bold,
         color: Colors.black87,
       ),
@@ -47,7 +47,7 @@ class IntroScreen extends StatelessWidget {
     bodyWidget: Text(
       "Browse, search, and purchase in simple steps.",
       style: TextStyle(
-        fontSize: 18,
+      fontSize: 24,
         fontWeight: FontWeight.w600,
         color: Colors.black54,
       ),

@@ -34,7 +34,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final passwordFocusNode = FocusNode();
 
   Future<void> loginUser() async {
-    const String loginUrl = "http://192.168.1.10/car_api/login.php";
+    const String loginUrl = "http://192.168.248.153/car_api/login.php";
     final body = {
       "email": emailController.text.trim(),
       "password": passwordController.text.trim(),

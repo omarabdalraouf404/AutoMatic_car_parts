@@ -2,11 +2,11 @@ class AppStrings {
 
   // appName
 
-  static const String appName = "AotuMatic";
+  static const String appName = "AutoMatic";
 
   // onBoarding
 
-  static const String  welcome = "AotuMatic";
+  static const String  welcome = "AutoMatic";
 
   // login
 

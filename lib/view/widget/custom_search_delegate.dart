@@ -4,7 +4,7 @@ import 'package:workshop_app/Cubit/cart_cupit_page.dart';
 import 'package:workshop_app/core/design/title_text.dart';
 import 'package:workshop_app/core/utils/app_color.dart';
 import 'package:workshop_app/core/utils/text_style_theme.dart';
-import 'package:workshop_app/service/api_service.dart';
+import 'package:workshop_app/service/api_service/api_service.dart';
 import 'package:workshop_app/model/product_model.dart';
 import 'package:workshop_app/view/widget/details_page.dart';
 import 'package:workshop_app/core/logic/helper_methods.dart';

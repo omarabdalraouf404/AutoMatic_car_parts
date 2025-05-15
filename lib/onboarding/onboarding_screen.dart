@@ -41,6 +41,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
     if (userId != null && userId != 0 && !isGuest) {
       Navigator.pushReplacement(
+        // ignore: use_build_context_synchronously
         context,
         MaterialPageRoute(builder: (context) => const HomeView()),
       );
@@ -141,6 +142,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           fontSize: 16.sp,
                           fontWeight: FontWeight.w600,
                           decoration: TextDecoration.underline,
+                          // ignore: deprecated_member_use
                           decorationColor: AppColor.darkGray.withOpacity(0.8),
                           decorationThickness: 1,
                           decorationStyle: TextDecorationStyle.solid,

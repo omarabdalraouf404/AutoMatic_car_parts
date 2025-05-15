@@ -30,7 +30,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
 
   Future<void> sendResetCode() async {
     const String forgotPasswordUrl =
-        "http://192.168.1.10/car_api/forgot_password.php"; // Ensure the correct API URL
+        "http://192.168.248.153/car_api/forgot_password.php"; // Ensure the correct API URL
     final body = {
       "email": emailController.text.trim(),
     };

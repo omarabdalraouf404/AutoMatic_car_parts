@@ -10,7 +10,7 @@ import 'package:workshop_app/core/logic/helper_methods.dart';
 import 'package:workshop_app/core/utils/app_color.dart';
 import 'package:workshop_app/core/utils/text_style_theme.dart';
 import 'package:workshop_app/model/product_model.dart';
-import 'package:workshop_app/service/api_service.dart';
+import 'package:workshop_app/service/api_service/api_service.dart';
 import 'package:workshop_app/view/pages/cart/cart_page.dart';
 import 'package:workshop_app/view/widget/custom_top_sell_item_product.dart';
 import 'package:workshop_app/view/widget/details_page.dart';
