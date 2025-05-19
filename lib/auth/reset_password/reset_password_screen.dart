@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:workshop_app/core/utils/assets.dart';
 import 'package:workshop_app/core/utils/text_style_theme.dart';
+import 'package:workshop_app/service/api_service/api_urls.dart';
 import '../../core/design/app_button.dart';
 import '../../core/design/app_input.dart';
 import '../../core/design/custom_app_bar.dart';
@@ -39,10 +40,10 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
       isLoading = true;
     });
 
-    const String apiUrl =
-        "http://192.168.248.153/car_api/reset_password.php"; // Ensure the correct API URL
+    // const String apiUrl =
+    //     "http://192.168.248.153/car_api/reset_password.php"; // Ensure the correct API URL
 
-    final response = await http.post(Uri.parse(apiUrl), body: {
+    final response = await http.post(Uri.parse(ApiUrls.resetPassword), body: {
       "email": widget.email, // Registered email
       "otp_code": widget.otpCode, // Verification code (OTP)
       "new_password": passwordController.text.trim(), // New password

@@ -13,6 +13,7 @@ import 'package:workshop_app/core/utils/app_strings.dart';
 import 'package:workshop_app/core/utils/assets.dart';
 import 'package:workshop_app/core/utils/spacing.dart';
 import 'package:workshop_app/core/utils/text_style_theme.dart';
+import 'package:workshop_app/service/api_service/api_urls.dart';
 import 'package:workshop_app/view/Home/homeview.dart';
 import '../../core/design/app_button.dart';
 import '../../core/regex/app_regex.dart';
@@ -34,14 +35,14 @@ class _LoginScreenState extends State<LoginScreen> {
   final passwordFocusNode = FocusNode();
 
   Future<void> loginUser() async {
-    const String loginUrl = "http://192.168.248.153/car_api/login.php";
+    // const String loginUrl = "http://192.168.248.153/car_api/login.php";
     final body = {
       "email": emailController.text.trim(),
       "password": passwordController.text.trim(),
     };
 
     try {
-      final response = await http.post(Uri.parse(loginUrl), body: body);
+      final response = await http.post(Uri.parse(ApiUrls.login), body: body);
 
       print("Response body: ${response.body}");
 

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:http/http.dart' as http;
 import 'package:workshop_app/auth/verify/verify_screen.dart';
+import 'package:workshop_app/service/api_service/api_urls.dart';
 import '../../core/design/app_button.dart';
 import '../../core/design/app_input.dart';
 import '../../core/design/custom_app_bar.dart';
@@ -29,8 +30,8 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   bool isLoading = false; // متغير لحالة التحميل
 
   Future<void> sendResetCode() async {
-    const String forgotPasswordUrl =
-        "http://192.168.248.153/car_api/forgot_password.php"; // Ensure the correct API URL
+    // const String forgotPasswordUrl =
+    //     "http://192.168.248.153/car_api/forgot_password.php"; // Ensure the correct API URL
     final body = {
       "email": emailController.text.trim(),
     };
@@ -41,7 +42,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
 
     try {
       final response =
-          await http.post(Uri.parse(forgotPasswordUrl), body: body);
+          await http.post(Uri.parse(ApiUrls.forgotPassword), body: body);
       final result = jsonDecode(response.body);
 
       if (response.statusCode == 200 && result['status'] == 'success') {

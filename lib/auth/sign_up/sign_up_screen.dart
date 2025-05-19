@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:workshop_app/auth/login/login_screen.dart';
+import 'package:workshop_app/service/api_service/api_urls.dart';
 import '../../core/design/app_button.dart';
 import '../../core/design/app_input.dart';
 import '../../core/design/custom_app_bar.dart';
@@ -35,7 +36,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final confirmPasswordFocusNode = FocusNode();
 
   Future<void> registerUser() async {
-    const String registerUrl = "http://192.168.248.153/car_api/register.php";
+    // const String registerUrl = "http://192.168.248.153/car_api/register.php";
     final body = {
       "name": userNameController.text.trim(),
       "email": emailController.text.trim(),
@@ -43,7 +44,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     };
 
     try {
-      final response = await http.post(Uri.parse(registerUrl), body: body);
+      final response = await http.post(Uri.parse(ApiUrls.register), body: body);
 
       // ✅ Print the response to monitor errors
       print("Response body: ${response.body}");

@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:workshop_app/core/utils/assets.dart';
 import 'package:workshop_app/core/utils/text_style_theme.dart';
+import 'package:workshop_app/service/api_service/api_urls.dart';
 import 'package:workshop_app/view/Home/homeview.dart';
 import '../../core/design/app_button.dart';
 import '../../core/design/app_input.dart';
@@ -37,11 +38,11 @@ class _ResetPasswordScreenState extends State<ResetPasswordAccount> {
       isLoading = true;
     });
 
-    const String apiUrl =
-        "http://192.168.248.153/car_api/reset_password_account.php"; // URL API
+    // const String apiUrl =
+    //     "http://192.168.248.153/car_api/reset_password_account.php"; // URL API
 
     final response = await http.post(
-      Uri.parse(apiUrl),
+      Uri.parse(ApiUrls.resetPasswordAccount),
       body: {
         "email": widget.email, // تأكد أن البريد الإلكتروني الصحيح يتم تمريره
         "new_password":

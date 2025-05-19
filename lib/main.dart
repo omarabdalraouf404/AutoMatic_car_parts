@@ -3,31 +3,29 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:provider/provider.dart'; // ✅ إضافة مكتبة Provider
+import 'package:provider/provider.dart'; //Provider
 import 'package:workshop_app/Cubit/order_cubit_page.dart';
 import 'package:workshop_app/service/chat_boot/provider/msg_provider.dart';
 import 'package:workshop_app/workshop_app.dart';
 import 'core/logic/cache_helper.dart';
-import 'Cubit/cart_cupit_page.dart'; // ✅ تأكد من وجود هذا المسار أو عدّله حسب الحاجة
+import 'Cubit/cart_cupit_page.dart'; 
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await CacheHelper.init();
 
-  // ✅ تعديل: دمج MultiProvider مع DevicePreview و MultiBlocProvider
-  // ✅ تم إضافة هذا الكود لتهيئة الـ CacheHelper
+
+  // CacheHelper
   runApp(
     !kReleaseMode
         ? DevicePreview(
             enabled: true,
-            builder: (context) => MyAppWithProviders(), // ← هنا نستخدم MultiProvider
+            builder: (context) => MyAppWithProviders(), //MultiProvider
           )
         : MyAppWithProviders(),
   );
 }
-// ✅ هذا الكلاس هو نقطة البداية للتطبيق
-// ✅ تم إضافة MultiProvider هنا لاحتواء جميع الـ Providers
-// ✅ هذا الكلاس تمت إضافته لاحتواء MultiProvider
+
 class MyAppWithProviders extends StatelessWidget {
   const MyAppWithProviders({super.key});
 
@@ -35,7 +33,7 @@ class MyAppWithProviders extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => MessageProvider()), // ✅ تم إضافة هذا Provider
+        ChangeNotifierProvider(create: (_) => MessageProvider()), //Provider
       ],
       child: const MyAppWithBloc(),
     );

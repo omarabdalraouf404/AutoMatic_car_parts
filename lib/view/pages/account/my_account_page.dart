@@ -167,7 +167,6 @@ class _MyAccountPageState extends State<MyAccountPage> {
         ),
       );
     }
-
     return Scaffold(
       appBar: CustomAppBar(
         height: 150.h,
@@ -212,6 +211,7 @@ class _MyAccountPageState extends State<MyAccountPage> {
         ),
         gradient: LinearGradient(
           colors: [
+            // ignore: deprecated_member_use
             AppColor.primary.withOpacity(.86),
             Color.fromARGB(255, 29, 196, 99),
           ],
