@@ -156,6 +156,7 @@ class CartCubit extends Cubit<CartState> {
   }
 
   // تحميل الإشعارات من SharedPreferences
+  // ignore: unused_element
   Future<void> _loadNotifications() async {
     final prefs = await SharedPreferences.getInstance();
     final notificationsData = prefs.getString('notifications') ?? '[]';
