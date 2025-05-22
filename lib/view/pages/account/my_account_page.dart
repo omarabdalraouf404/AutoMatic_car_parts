@@ -7,9 +7,9 @@ import 'package:workshop_app/auth/login/login_screen.dart';
 import 'package:workshop_app/auth/reset%20password%20account/reset_password_account.dart';
 import 'package:workshop_app/auth/sign_up/sign_up_screen.dart';
 import 'package:workshop_app/core/design/app_button.dart';
+import 'package:workshop_app/core/design/app_image.dart';
 import 'package:workshop_app/core/logic/helper_methods.dart';
 import 'package:workshop_app/core/utils/spacing.dart';
-import 'package:workshop_app/view/widget/account_item.dart';
 import '../../../core/design/custom_app_bar.dart';
 import '../../../core/design/title_text.dart';
 import '../../../core/utils/app_color.dart';
@@ -121,89 +121,83 @@ class _MyAccountPageState extends State<MyAccountPage> {
           ),
         ),
         body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "You are in Guest Mode",
-                style: TextStyleTheme.textStyle18SemiBold,
+          child: Card(
+            elevation: 4,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
+            margin: EdgeInsets.symmetric(horizontal: 32.w, vertical: 32.h),
+            child: Padding(
+              padding: EdgeInsets.all(24.w),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.person_outline, size: 70, color: AppColor.primary),
+                  SizedBox(height: 20),
+                  Text(
+                    "You are in Guest Mode",
+                    style: TextStyleTheme.textStyle18SemiBold,
+                  ),
+                  verticalSpace(10),
+                  Text(
+                    "Please sign in to access your account.",
+                    style: TextStyleTheme.textStyle15medium,
+                  ),
+                  verticalSpace(30),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: AppButton(
+                          text: "Go to Login",
+                          textStyle: TextStyle(color: AppColor.white),
+                          icon: Icon(Icons.login, color: AppColor.white),
+                          onPress: () async {
+                            final prefs = await SharedPreferences.getInstance();
+                            await prefs.remove('isGuest');
+                            Navigator.pushReplacement(
+                              // ignore: use_build_context_synchronously
+                              context,
+                              MaterialPageRoute(builder: (context) => LoginScreen()),
+                            );
+                          },
+                        ),
+                      ),
+                      SizedBox(width: 16),
+                      Expanded(
+                        child: AppButton(
+                          text: "Sign Up",
+                          buttonStyle: ElevatedButton.styleFrom(
+                            backgroundColor: AppColor.white,
+                            side: BorderSide(color: AppColor.primary),
+                          ),
+                          textStyle: TextStyle(color: AppColor.primary),
+                          icon: Icon(Icons.person_add, color: AppColor.primary),
+                          onPress: () async {
+                            final prefs = await SharedPreferences.getInstance();
+                            await prefs.remove('isGuest');
+                            navigateTo(toPage: const SignUpScreen());
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
-              verticalSpace(20),
-              Text(
-                "Please sign in to access your account.",
-                style: TextStyleTheme.textStyle15medium,
-              ),
-              verticalSpace(30),
-              AppButton(
-                text: "Go to Login",
-                textStyle: TextStyle(
-                  color: AppColor.white,
-                ), // إضافة لون النص أبيض
-                onPress: () async {
-                  final prefs = await SharedPreferences.getInstance();
-                  await prefs.remove('isGuest'); // إزالة حالة الضيف
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (context) => LoginScreen()),
-                  );
-                },
-              ),
-              verticalSpace(20),
-              AppButton(
-                text: "Sign Up",
-                buttonStyle: ElevatedButton.styleFrom(
-                  backgroundColor: AppColor.white,
-                  side: BorderSide(color: AppColor.primary),
-                ),
-                textStyle: TextStyle(color: AppColor.primary),
-                onPress: () async {
-                  final prefs = await SharedPreferences.getInstance();
-                  await prefs.remove('isGuest'); // إزالة حالة الضيف
-                  navigateTo(toPage: const SignUpScreen());
-                },
-              ),
-            ],
+            ),
           ),
         ),
       );
     }
     return Scaffold(
       appBar: CustomAppBar(
-        height: 150.h,
+        height: 110.h,
         padding: EdgeInsets.only(left: 20.w),
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(100.r),
           bottomRight: Radius.circular(100.r),
         ),
         hideBack: true,
-        action: Column(
-          children: [
-            Padding(
-              padding: EdgeInsets.only(top: 50.h, right: 110.w, bottom: 16.h),
-              child: CustomTextWidget(
-                label: "Welcome",
-                style: TextStyleTheme.textStyle32SemiBold.copyWith(
-                  color: AppColor.white,
-                ),
-              ),
-            ),
-            Row(
-              children: [
-                Icon(Icons.account_circle, color: Colors.white, size: 28.h),
-                horizontalSpace(5),
-                Padding(
-                  padding: EdgeInsets.only(right: 110.w),
-                  child: CustomTextWidget(
-                    label: userName,
-                    style: TextStyleTheme.textStyle15Bold,
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
         title: Padding(
-          padding: EdgeInsets.only(bottom: 100.h),
+          padding: EdgeInsets.only(bottom: 60.h),
           child: CustomTextWidget(
             label: "Profile",
             style: TextStyleTheme.textStyle20Bold,
@@ -220,34 +214,75 @@ class _MyAccountPageState extends State<MyAccountPage> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 36.w),
+            padding: EdgeInsets.symmetric(horizontal: 24.w),
             child: Column(
               children: [
-                verticalSpace(66),
-                AccountItem(
-                  title: "Edit Profile",
-                  icon: AppImages.edit,
-                  onTap: () {},
+                SizedBox(height: 30.h),
+                // Profile Header
+                Card(
+                  elevation: 3,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(vertical: 24.h, horizontal: 16.w),
+                    child: Column(
+                      children: [
+                        CircleAvatar(
+                          radius: 38,
+                          backgroundColor: AppColor.primary.withOpacity(0.15),
+                          child: Icon(Icons.person, size: 60, color: AppColor.primary),
+                        ),
+                        SizedBox(height: 12),
+                        Text(userName, style: TextStyleTheme.textStyle18SemiBold),
+                        SizedBox(height: 4),
+                        Text(userEmail, style: TextStyle(color: Colors.grey[700], fontSize: 14)),
+                      ],
+                    ),
+                  ),
                 ),
-                verticalSpace(56),
-                AccountItem(
-                  title: "Change Password",
-                  icon: AppImages.lock,
-                  onTap: () {
-                    navigateTo(toPage: ResetPasswordAccount(email: userEmail));
-                  },
+                SizedBox(height: 30.h),
+                // Account Items
+                Card(
+                  elevation: 2,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+                  child: Column(
+                    children: [
+                      _buildAccountItem(
+                        title: "Edit Profile",
+                        icon: AppImages.edit,
+                        onTap: () {},
+                      ),
+                      Divider(height: 1),
+                      _buildAccountItem(
+                        title: "Change Password",
+                        icon: AppImages.lock,
+                        onTap: () {
+                          navigateTo(toPage: ResetPasswordAccount(email: userEmail));
+                        },
+                      ),
+                      Divider(height: 1),
+                      _buildAccountItem(
+                        title: "Support",
+                        icon: AppImages.help,
+                        onTap: () {},
+                      ),
+                    ],
+                  ),
                 ),
-                verticalSpace(56),
-                AccountItem(
-                  title: "Support",
-                  icon: AppImages.help,
-                  onTap: () {},
-                ),
-                verticalSpace(56),
-                AccountItem(
-                  title: "Log Out",
-                  icon: AppImages.logOut,
-                  onTap: () async {
+                SizedBox(height: 30.h),
+                // Log Out Button
+                AppButton(
+                  text: "Log Out",
+                  buttonStyle: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.grey[800],
+                    fixedSize: Size(double.infinity, 44.h),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12.r),
+                    ),
+                  ),
+                  textStyle: TextStyleTheme.textStyle15SemiBold.copyWith(
+                    color: AppColor.white,
+                  ),
+                  onPress: () async {
                     final prefs = await SharedPreferences.getInstance();
                     await prefs.clear();
                     Navigator.pushReplacement(
@@ -255,13 +290,15 @@ class _MyAccountPageState extends State<MyAccountPage> {
                       MaterialPageRoute(builder: (context) => LoginScreen()),
                     );
                   },
+                  icon: Icon(Icons.logout, color: Colors.white),
                 ),
-                verticalSpace(70),
+                SizedBox(height: 16.h),
+                // Delete Account Button
                 AppButton(
                   text: "Delete Account",
                   buttonStyle: ElevatedButton.styleFrom(
                     backgroundColor: Color(0xffBB0B31),
-                    fixedSize: Size(245.w, 36.h),
+                    fixedSize: Size(double.infinity, 40.h),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12.r),
                     ),
@@ -271,7 +308,26 @@ class _MyAccountPageState extends State<MyAccountPage> {
                   ),
                   onPress: () async {
                     if (userId != 0) {
-                      await deleteAccount(userId, context);
+                      final confirm = await showDialog<bool>(
+                        context: context,
+                        builder: (ctx) => AlertDialog(
+                          title: Text("Delete Account"),
+                          content: Text("Are you sure you want to delete your account? This action cannot be undone."),
+                          actions: [
+                            TextButton(
+                              onPressed: () => Navigator.of(ctx).pop(false),
+                              child: Text("Cancel"),
+                            ),
+                            TextButton(
+                              onPressed: () => Navigator.of(ctx).pop(true),
+                              child: Text("Delete", style: TextStyle(color: Colors.red)),
+                            ),
+                          ],
+                        ),
+                      );
+                      if (confirm == true) {
+                        await deleteAccount(userId, context);
+                      }
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
@@ -281,12 +337,26 @@ class _MyAccountPageState extends State<MyAccountPage> {
                       );
                     }
                   },
+                  icon: Icon(Icons.delete, color: Colors.white),
                 ),
+                SizedBox(height: 30.h),
               ],
             ),
           ),
         ),
-    ),
-);
-}
+      ),
+    );
+  }
+
+  Widget _buildAccountItem({required String title, required String icon, required VoidCallback onTap}) {
+    return ListTile(
+      leading: AppImage(icon, height: 28, width: 28),
+      title: Text(title, style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16)),
+      trailing: Icon(Icons.arrow_forward_ios, size: 18, color: Colors.grey[400]),
+      onTap: onTap,
+      contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 2),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      hoverColor: Colors.grey[100],
+    );
+  }
 }

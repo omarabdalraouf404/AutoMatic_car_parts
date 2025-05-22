@@ -29,6 +29,7 @@ class CompletedOrder extends StatelessWidget {
               ),
               verticalSpace(30),
               AppButton(
+                icon: const Icon(Icons.done),
                 text: "Done",
                 textStyle: TextStyleTheme.textStyle16SemiBold.copyWith(
                   color: AppColor.white,

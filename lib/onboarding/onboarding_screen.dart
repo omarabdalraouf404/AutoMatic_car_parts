@@ -95,6 +95,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 onPress: () async {
                   navigateTo(toPage: const SignUpScreen());
                 },
+                icon: const Icon(Icons.person_add),
               ),
               verticalSpace(16),
               AppButton(
@@ -110,6 +111,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 onPress: () async {
                   navigateTo(toPage: const LoginScreen());
                 },
+                icon: const Icon(Icons.login),
               ),
               verticalSpace(4),
               GestureDetector(

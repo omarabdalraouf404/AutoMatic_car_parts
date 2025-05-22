@@ -343,6 +343,7 @@ class _DetailsPageState extends State<DetailsPage> {
                       onPress: () async {
                         await addToCart(context);
                       },
+                      icon: const Icon(Icons.shopping_cart),
                     ),
                     verticalSpace(10),
                     AppButton(
@@ -355,7 +356,8 @@ class _DetailsPageState extends State<DetailsPage> {
                           borderRadius: BorderRadius.circular(10.r),
                         ),
                       ),
-                      onPress: () async {}, // عملية شراء جديدة
+                      onPress: () async {}, 
+                      icon: const Icon(Icons.shopping_bag), // Buy icon
                     ),
                   ],
                 ),

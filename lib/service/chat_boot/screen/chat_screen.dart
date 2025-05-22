@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 // ignore: depend_on_referenced_packages
 import 'package:provider/provider.dart';
+import 'package:workshop_app/core/utils/app_color.dart' as color;
 import 'package:workshop_app/service/chat_boot/model/message_model.dart';
 import 'package:workshop_app/service/chat_boot/provider/msg_provider.dart';
 
@@ -40,10 +41,10 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey.shade900,
+      backgroundColor: color.AppColor.primary,
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: Colors.blueGrey.shade800,
+        backgroundColor: color.AppColor.primary,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -55,7 +56,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 children: [
                   TextSpan(
                     text: "bot",
-                    style: mTextStyle25(fontColor: Colors.lightBlueAccent),
+                    style: mTextStyle25(fontColor: color.AppColor.primary),
                   ),
                 ],
               ),
@@ -66,7 +67,7 @@ class _ChatScreenState extends State<ChatScreen> {
           padding: const EdgeInsets.all(4.0),
           child: Container(
             decoration: BoxDecoration(
-              color: Colors.lightBlue.withOpacity(0.1),
+              color: color.AppColor.primary,
               borderRadius: BorderRadius.circular(100),
             ),
             child: IconButton(
@@ -131,12 +132,12 @@ class _ChatScreenState extends State<ChatScreen> {
                       chatBoxController.clear();
                     });
                   },
-                  child: const Icon(Icons.send, color: Colors.lightBlueAccent),
+                  child: const Icon(Icons.send, color: color.AppColor.primary),
                 ),
                 hintText: "Write a question!",
                 hintStyle: mTextStyle18(fontColor: Colors.white38),
                 filled: true,
-                fillColor: Colors.blueGrey.shade800,
+                fillColor: color.AppColor.primary,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(21),
                   borderSide: BorderSide.none,
@@ -199,7 +200,7 @@ class _ChatScreenState extends State<ChatScreen> {
         margin: const EdgeInsets.symmetric(vertical: 6, horizontal: 12),
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
-          color: Colors.lightBlue.shade200,
+          color: color.AppColor.primary,
           borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(21),
             topRight: Radius.circular(21),
@@ -258,7 +259,7 @@ class _ChatScreenState extends State<ChatScreen> {
                               "Text copied to clipboard!",
                               style: mTextStyle18(fontColor: Colors.white70),
                             ),
-                            backgroundColor: Colors.lightBlueAccent.withOpacity(0.8),
+                            backgroundColor: color.AppColor.primary,
                           ),
                         );
                       },

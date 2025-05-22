@@ -32,6 +32,7 @@ class SuccessPasswordChangedScreen extends StatelessWidget {
               AppButton(
                 textStyle: TextStyle(color: AppColor.white),
                 text: "Back to login",
+                icon: Icon(Icons.login, color: AppColor.white),
                 onPress: () async {
                   navigateTo(toPage: LoginScreen());
                 },

@@ -13,7 +13,7 @@ class AppButton extends StatelessWidget {
     required this.onPress,
     this.buttonStyle,
     this.textStyle,
-    this.isLoading = false, // القيمة الافتراضية لـ isLoading
+    this.isLoading = false, required Icon icon, // القيمة الافتراضية لـ isLoading
   });
 
   @override

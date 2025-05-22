@@ -62,4 +62,6 @@ class OrdersModel {
       icon: newIcon,
     );
   }
+
+  static Future<void> fromJson(item) async {}
 }

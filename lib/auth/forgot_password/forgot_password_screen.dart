@@ -138,7 +138,8 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                   await sendResetCode(); // استدعاء API لإرسال الكود
                 }
               },
-              isLoading: isLoading, // زر التحميل أثناء الإرسال
+              isLoading: isLoading,
+              icon: const Icon(Icons.send), // زر التحميل أثناء الإرسال
             ),
           ],
         ),

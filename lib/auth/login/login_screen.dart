@@ -207,6 +207,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   loginUser();
                 }
               },
+              icon: Icon(Icons.login, color: AppColor.white),
             ),
             verticalSpace(40),
             CustomRichText(

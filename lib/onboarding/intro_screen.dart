@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:workshop_app/core/utils/app_color.dart' as color;
 import 'package:workshop_app/onboarding/onboarding_screen.dart';
 //import 'package:workshop_app/view/Home/homeview.dart';
 // عدل على حسب اسم الشاشة الرئيسية عندك
@@ -18,7 +19,7 @@ class IntroScreen extends StatelessWidget {
             style: TextStyle(
               fontSize: 28,
               fontWeight: FontWeight.bold,
-              color: Colors.blue[800],
+              color: color.AppColor.primary,
               height: 1.3,
             ),
             textAlign: TextAlign.center,
@@ -52,7 +53,7 @@ class IntroScreen extends StatelessWidget {
             style: TextStyle(
               fontSize: 28,
               fontWeight: FontWeight.bold,
-              color: Colors.blue[800],
+              color: color.AppColor.primary,
             ),
             textAlign: TextAlign.center,
           ),
@@ -85,7 +86,7 @@ class IntroScreen extends StatelessWidget {
             style: TextStyle(
               fontSize: 28,
               fontWeight: FontWeight.bold,
-              color: Colors.blue[800],
+              color:color.AppColor.primary,
             ),
             textAlign: TextAlign.center,
           ),
@@ -152,7 +153,7 @@ class IntroScreen extends StatelessWidget {
           "Skip",
           style: TextStyle(
             fontSize: 16,
-            color: Colors.blue[800],
+            color: color.AppColor.primary,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -161,7 +162,7 @@ class IntroScreen extends StatelessWidget {
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: Colors.blue[800],
+          color: color.AppColor.primary,
         ),
         child: const Icon(Icons.arrow_forward, color: Colors.white),
       ),
@@ -169,10 +170,10 @@ class IntroScreen extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
-          color: Colors.blue[800],
+          color: color.AppColor.primary,
         ),
         child: const Text(
-          "Start Now",
+          "Start",
           style: TextStyle(
             fontSize: 12,
             color: Colors.white,
@@ -188,7 +189,7 @@ class IntroScreen extends StatelessWidget {
         activeShape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(24.0),
         ),
-        activeColor: Colors.blue[800]!,
+        activeColor: color.AppColor.primary,
       ),
       curve: Curves.fastLinearToSlowEaseIn,
       controlsMargin: const EdgeInsets.all(16),

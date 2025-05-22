@@ -19,8 +19,11 @@ class ResetPasswordScreen extends StatefulWidget {
   final String email;
   final String otpCode;
 
-  const ResetPasswordScreen(
-      {super.key, required this.email, required this.otpCode});
+  const ResetPasswordScreen({
+    super.key,
+    required this.email,
+    required this.otpCode,
+  });
 
   @override
   State<ResetPasswordScreen> createState() => _ResetPasswordScreenState();
@@ -43,21 +46,26 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
     // const String apiUrl =
     //     "http://192.168.248.153/car_api/reset_password.php"; // Ensure the correct API URL
 
-    final response = await http.post(Uri.parse(ApiUrls.resetPassword), body: {
-      "email": widget.email, // Registered email
-      "otp_code": widget.otpCode, // Verification code (OTP)
-      "new_password": passwordController.text.trim(), // New password
-    });
+    final response = await http.post(
+      Uri.parse(ApiUrls.resetPassword),
+      body: {
+        "email": widget.email, // Registered email
+        "otp_code": widget.otpCode, // Verification code (OTP)
+        "new_password": passwordController.text.trim(), // New password
+      },
+    );
 
     final result = jsonDecode(response.body);
 
     if (response.statusCode == 200 && result['status'] == 'success') {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-            content: Text(
-                style: TextStyle(color: Colors.white),
-                "Password updated successfully"),
-            backgroundColor: Colors.green),
+          content: Text(
+            style: TextStyle(color: Colors.white),
+            "Password updated successfully",
+          ),
+          backgroundColor: Colors.green,
+        ),
       );
 
       // ✅ Navigate to the SuccessPasswordChangedScreen page
@@ -65,9 +73,12 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-            content:
-                Text(style: TextStyle(color: Colors.white), result['message']),
-            backgroundColor: Colors.red),
+          content: Text(
+            style: TextStyle(color: Colors.white),
+            result['message'],
+          ),
+          backgroundColor: Colors.red,
+        ),
       );
     }
 
@@ -145,6 +156,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
               textStyle: TextStyle(color: AppColor.white),
               text: isLoading ? "جاري التحديث..." : AppStrings.resetPassword,
               isLoading: isLoading, // عرض مؤشر التحميل أثناء العملية
+              icon: Icon(Icons.lock_reset, color: AppColor.white),
               onPress: resetPassword, // استدعاء API لتحديث كلمة المرور
             ),
           ],

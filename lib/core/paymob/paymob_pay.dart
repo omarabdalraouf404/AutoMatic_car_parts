@@ -84,12 +84,12 @@ class PayMobPay extends StatelessWidget {
                   }
                 });
           },
+          icon: const Icon(Icons.payment),
         ),
-    ),
-);
+      ),
+    );
+  }
 }
-}
-
 
 //=============================================
 // import 'package:flutter/material.dart';

@@ -54,10 +54,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
       if (response.statusCode == 200 && result['status'] == 'success') {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-              content: Text(
-                  style: TextStyle(color: Colors.white),
-                  "Registration successful!"),
-              backgroundColor: Colors.green),
+            content: Text(
+              style: TextStyle(color: Colors.white),
+              "Registration successful!",
+            ),
+            backgroundColor: Colors.green,
+          ),
         );
 
         // *Store user data only if registration is successful*
@@ -72,15 +74,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
         // *Do not attempt to store data if the email is already registered*
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-              content: Text(
-                  style: TextStyle(color: Colors.white),
-                  "This email is already registered. Please use a different email."),
-              backgroundColor: Colors.orange),
+            content: Text(
+              style: TextStyle(color: Colors.white),
+              "This email is already registered. Please use a different email.",
+            ),
+            backgroundColor: Colors.orange,
+          ),
         );
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-              content: Text(result['message']), backgroundColor: Colors.red),
+            content: Text(result['message']),
+            backgroundColor: Colors.red,
+          ),
         );
       }
     } catch (e) {
@@ -88,15 +94,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-            content: Text(
-                style: TextStyle(color: Colors.white),
-                "Failed to connect to the server."),
-            backgroundColor: Colors.red),
+          content: Text(
+            style: TextStyle(color: Colors.white),
+            "Failed to connect to the server.",
+          ),
+          backgroundColor: Colors.red,
+        ),
       );
     }
   }
 
-// دالة لحفظ بيانات المستخدم
+  // دالة لحفظ بيانات المستخدم
   Future<void> saveUserData(Map<String, dynamic> user) async {
     try {
       final prefs = await SharedPreferences.getInstance();
@@ -149,8 +157,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         return "يرجى إدخال بريدك الإلكتروني";
                       }
                       if (!RegExp(
-                              r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$")
-                          .hasMatch(value)) {
+                        r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$",
+                      ).hasMatch(value)) {
                         return "البريد الإلكتروني غير صالح";
                       }
                       return null;
@@ -177,8 +185,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         return "يرجى إدخال اسمك";
                       }
                       if (!RegExp(
-                              r"^[a-zA-Z\u0621-\u064A]{2,}(?:\s[a-zA-Z\u0621-\u064A]+)+$")
-                          .hasMatch(value)) {
+                        r"^[a-zA-Z\u0621-\u064A]{2,}(?:\s[a-zA-Z\u0621-\u064A]+)+$",
+                      ).hasMatch(value)) {
                         return "يرجى إدخال اسمك الثنائي (الاسم واللقب)";
                       }
                       return null;
@@ -250,6 +258,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             AppButton(
               textStyle: TextStyle(color: AppColor.white),
               text: AppStrings.signUp,
+              icon: Icon(Icons.person_add, color: AppColor.white),
               onPress: () async {
                 if (formKey.currentState!.validate()) {
                   registerUser();
@@ -266,12 +275,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
             ),
           ],
         ),
-     ),
-);
+      ),
+    );
+  }
 }
-}
-
-
 
 //=================================
 // import 'dart:convert';

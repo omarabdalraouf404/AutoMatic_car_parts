@@ -60,6 +60,7 @@ class _LocationWidgetState extends State<LocationWidget> {
       ).showSnackBar(SnackBar(content: Text("Failed to get location: $e")));
     }
   }
+  
 
   @override
   Widget build(BuildContext context) {

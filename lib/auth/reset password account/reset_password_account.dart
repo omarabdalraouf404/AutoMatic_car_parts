@@ -172,7 +172,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordAccount> {
               textStyle: TextStyle(color: AppColor.white),
               text: isLoading ? "جاري التحديث..." : AppStrings.resetPassword,
               isLoading: isLoading, // عرض مؤشر التحميل أثناء العملية
-              onPress: resetPassword, // استدعاء API لتحديث كلمة المرور
+              onPress: resetPassword, icon: Icon(Icons.lock), // استدعاء API لتحديث كلمة المرور
             ),
           ],
         ),

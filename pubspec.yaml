@@ -45,6 +45,7 @@ dependencies:
   flutter_riverpod: ^2.6.1
   flutter_screenutil: ^5.9.3
   flutter_svg: ^2.0.17
+  font_awesome_icon_class: ^0.0.6
   geocoding: ^2.0.0
   google_fonts: ^6.2.1
   google_maps_flutter: ^2.10.1

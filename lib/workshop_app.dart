@@ -17,6 +17,7 @@ class WorkShopApp extends StatelessWidget {
       splitScreenMode: true,
       builder:
           (context, child) => MaterialApp(
+            // ignore: deprecated_member_use
             useInheritedMediaQuery: true,
             locale: DevicePreview.locale(context),
             builder: DevicePreview.appBuilder,

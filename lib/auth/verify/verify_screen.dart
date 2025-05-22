@@ -148,7 +148,7 @@ class _VerifyScreenState extends State<VerifyScreen> {
                   verifyOTP(); // ✅ استدعاء التحقق من الرمز
                 }
               },
-              isLoading: isLoading, // زر تحميل أثناء الطلب
+              isLoading: isLoading, icon: Icon(Icons.check), // زر تحميل أثناء الطلب
             ),
             verticalSpace(22),
             isTimerFinished

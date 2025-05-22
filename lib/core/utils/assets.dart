@@ -9,13 +9,13 @@ class AppImages {
   static const orders = '${basePathIcons}orders.png';
   static const account = '${basePathIcons}account.png';
   static const notification = '${basePathIcons}notification.png';
-  static const car1 = '${basePathImages}car1.png';
-  static const car2 = '${basePathImages}car2.png';
-  static const car3 = '${basePathImages}car3.png';
-  static const car4 = '${basePathImages}car4.png';
-  static const car5 = '${basePathImages}car5.png';
-  static const car6 = '${basePathImages}car6.png';
-  static const car7 = '${basePathImages}car7.png';
+  static const Mercedes = '${basePathImages}Mercedes.png';
+  static const BMW = '${basePathImages}BMW.png';
+  static const Audi = '${basePathImages}Audi.png';
+  static const Fiat = '${basePathImages}FIAT.png';
+  static const Nissan = '${basePathImages}NISSAN.png';
+  static const VloksWagen = '${basePathImages}VloksWagen.png';
+  static const Honda = '${basePathImages}HONDA.png';
 
   static const spareParts1 = '${basePathImages}spare_parts1.png';
   static const spareParts2 = '${basePathImages}spare_parts2.png';
